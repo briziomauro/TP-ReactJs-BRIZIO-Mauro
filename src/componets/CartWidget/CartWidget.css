@@ -1,0 +1,19 @@
+.cartNav{
+    height: 30px;
+    width: 30px;
+    background-color: white;
+    padding: 8px;
+    margin-top: 15px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+.cartDiv{
+    font-size: 2px;
+    color: white;
+}
+.cartDiv p{
+    display: inline-block;
+    margin-left: 5px;
+    color: white;
+    font-size: 15px;
+}

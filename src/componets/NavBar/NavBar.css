@@ -1,0 +1,29 @@
+.reactNav{
+    display: flex;
+    justify-content: space-around;
+    height: 80px;
+    background-color: #1b1b1b;
+}
+.eName{
+    color: white;
+    font-size: 25px;
+    padding-left: 15px;
+    justify-self: start;
+
+}
+.navCont{
+    display: flex;
+    list-style: none;
+    padding: auto;
+    
+}
+.navCont button{
+    list-style: none;
+    border: none;
+    margin: auto;
+    background-color: #1b1b1b;
+    color: white;
+    cursor: pointer;
+    font-size: 20px;
+
+}
