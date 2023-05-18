@@ -1,0 +1,32 @@
+.cardItem{
+    display: inline-block;
+    justify-content: center;
+    height: 250px;
+    width: 250px;
+}
+
+.itemImg{
+    height: 200px;
+    width: 200px;
+    
+}
+picture{
+    text-align: center;
+}
+.header{
+    text-align: center;
+}
+.Info{
+    text-align: center;
+}
+.itemFooter{
+    text-align: center;
+}
+.option{
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    background-color: #2e2b2b;
+    padding: 10px;
+    border-radius: 6px;
+}
