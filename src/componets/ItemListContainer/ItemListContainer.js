@@ -1,54 +1,46 @@
-import "./ItemListContainer.css"
-import { useState,useEffect } from "react"
-//import {getProducts, getProductsByCategory} from '../../asyncMock'
-import ItemList from "../ItemList/ItemList";
+import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { collection, query, where, getDocs } from 'firebase/firestore';
 import { db } from "../../service/firebase/firebaseConfig";
-import {getDocs, collection, query, where} from 'firebase/firestore'
+import ItemList from "../ItemList/ItemList";
 
-const ItemListContainer = ({greeting}) => {
-  const [products, setProducts] = useState([])
-  const [loading, setLoading] = useState(true)
+const ItemListContainer = ({ greeting }) => {
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const { categoryId } = useParams();
 
-  const { categoryId } = useParams()
+  useEffect(() => {
+    setLoading(true);
 
-  useEffect(()=>{
-    setLoading(true)
-    const collectionRef = categoryId
-      ? query(collection(db, 'products'), where('category', '==', categoryId))
-      : collection(db, 'products')
+    const fetchProducts = async () => {
+      try {
+        const collectionRef = categoryId
+          ? query(collection(db, 'products'), where('category', '==', categoryId))
+          : collection(db, 'products');
 
-    getDocs(collectionRef)
-      .then(response =>{
-        const productsAdapted = response.docs.map(doc =>{
-          const data = doc.data()
-          return {id: doc.id, ...data}
-        })
-        setProducts(productsAdapted)
-      })
-      .catch(error =>{
-        console.log(error)
-      }) 
-      .finally(()=>{
-        setLoading(false)
-      }) 
-    /*const asyncFunc = categoryId ? getProductsByCategory : getProducts
+        const querySnapshot = await getDocs(collectionRef);
+        const productsData = querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+        setProducts(productsData);
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-    asyncFunc(categoryId)
-      .then(response => {
-        setProducts(response)
-      })
-      .catch(error=>{
-        console.error(error)
-      })*/
-  }, [categoryId])
+    fetchProducts();
+  }, [categoryId]);
 
   return (
     <div>
-        <h1 className="catNav">{greeting}</h1>
-        <ItemList products={products}/>
+      <h1 className="catNav">{greeting}</h1>
+      {loading ? (
+        <p>Loading...</p>
+      ) : (
+        <ItemList products={products} />
+      )}
     </div>
-  )
+  );
 };
 
 export default ItemListContainer;

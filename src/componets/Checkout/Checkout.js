@@ -1,6 +1,9 @@
 import CheckoutForm from "../CheckouForm/CheckoutForm"
 import { db } from "../../service/firebase/firebaseConfig"
 import { useContext, useState } from "react"
+import { where } from 'firebase/firestore';
+import { getDocs } from 'firebase/firestore';
+import { CartContext } from "../../context/CartContext";
 import { Timestamp, addDoc, collection, documentId, query, writeBatch } from "firebase/firestore"
 
 const Checkout = async () => {
@@ -54,7 +57,7 @@ const Checkout = async () => {
             setLoading(false)
         }
     }
-    
+
     if(loading) {
         return <h1></h1>
     }   

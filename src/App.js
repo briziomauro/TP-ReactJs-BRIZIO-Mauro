@@ -4,7 +4,7 @@ import NavBar from './componets/NavBar/Navbar';
 import ItemListContainer from './componets/ItemListContainer/ItemListContainer';
 import ItemDetailContainer from './componets/ItemDetailContainer/ItemDetailContainer';
 import Cart from './componets/Cart/Cart'
-import Checkout from '.componets/Checkout/Checkout'
+import Checkout from './componets/Checkout/Checkout';
 import { CartProvider } from './context/CartContext';
 
 function App() {
