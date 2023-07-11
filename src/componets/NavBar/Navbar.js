@@ -7,12 +7,12 @@ const Navbar = () => {
     <nav className="reactNav">
       <Link to='/'> <h3 className="eName">BriMates</h3> </Link>
       <div className="navCont">
-        <NavLink to={`/category/Mates`} className={({ isActive}) => isActive ? 'ActiveOption' : 'Option'}>Mates</NavLink>
-        <NavLink to={`/category/Bombillas`} className={({ isActive}) => isActive ? 'ActiveOption' : 'Option'}>Bombillas</NavLink>
-        <NavLink to={`/category/Materas`} className={({ isActive}) => isActive ? 'ActiveOption' : 'Option'}>Materas</NavLink>
-        <NavLink to={`/category/Termos`} className={({ isActive}) => isActive ? 'ActiveOption' : 'Option'}>Termos</NavLink>
+        <NavLink to={`/category/Mates`} activeClassName='ActiveOption' className='Option'>Mates</NavLink>
+        <NavLink to={`/category/Bombillas`} activeClassName='ActiveOption' className='Option'>Bombillas</NavLink>
+        <NavLink to={`/category/Materas`} activeClassName='ActiveOption' className='Option'>Materas</NavLink>
+        <NavLink to={`/category/Termos`} activeClassName='ActiveOption' className='Option'>Termos</NavLink>
       </div>
-      <CartWidget />
+      <CartWidget></CartWidget>
     </nav>
   )
 };

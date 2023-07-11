@@ -16,4 +16,11 @@
     margin-left: 5px;
     color: white;
     font-size: 15px;
+} 
+.cartQuantity{
+    display: inline-block;
+    color: white;
+    margin: 5px;
+    padding: 3px;
+    font-size: 20px;
 }
